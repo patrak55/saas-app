@@ -4,7 +4,7 @@ import { useContext } from "react";
 import Image from "next/image";
 import { products } from "./products";
 import Link from "next/link";
-import { CartContext } from "./cartContext";
+import { CartContext, Product } from "./cartContext";
 
 export default function Home() {
   const context = useContext(CartContext);
@@ -15,7 +15,7 @@ export default function Home() {
 
   const { setCart, setModalProduct } = context;
 
-  const handleAddToCart = (product: any) => {
+  const handleAddToCart = (product: Product) => {
     setCart((prevCart) => [...prevCart, product]);
     setModalProduct(product);
   };
