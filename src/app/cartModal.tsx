@@ -27,8 +27,8 @@ function CartModalContent() {
 
   return (
     <div
-      className={`fixed top-20 right-4 z-20 w-80 rounded-lg bg-white p-4 shadow-lg transition-transform duration-300 ease-in-out ${
-        modalProduct ? "translate-x-0" : "translate-x-full"
+      className={`fixed top-20 right-4 z-20 w-80 rounded-lg bg-white p-4 shadow-lg transform transition-all duration-500 ease-in-out ${
+        modalProduct ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
       }`}
     >
       <div className="flex items-center">

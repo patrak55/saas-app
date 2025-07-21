@@ -66,16 +66,6 @@ export default function RootLayout({
         <CartProvider>
           <nav className="fixed top-0 left-0 right-0 z-10 bg-white shadow-md">
             <div className="container mx-auto flex items-center justify-between p-4">
-              <Link href="/" className="text-2xl font-bold text-gray-800">
-                MyStore
-              </Link>
-              <div className="hidden md:flex items-center space-x-6">
-                <Link href="/" className="text-gray-600 hover:text-blue-500">Home</Link>
-                <Link href="/produits" className="text-gray-600 hover:text-blue-500">Products</Link>
-                <Link href="/a-propos" className="text-gray-600 hover:text-blue-500">About</Link>
-                <Link href="/contact" className="text-gray-600 hover:text-blue-500">Contact</Link>
-                <CartIcon />
-              </div>
               <div className="md:hidden">
                 <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
                   <svg
@@ -94,6 +84,18 @@ export default function RootLayout({
                   </svg>
                 </button>
               </div>
+              <Link href="/" className="text-2xl font-bold text-gray-800">
+                MyStore
+              </Link>
+              <div className="hidden md:flex items-center space-x-6">
+                <Link href="/" className="text-gray-600 hover:text-blue-500">Home</Link>
+                <Link href="/produits" className="text-gray-600 hover:text-blue-500">Products</Link>
+                <Link href="/a-propos" className="text-gray-600 hover:text-blue-500">About</Link>
+                <Link href="/contact" className="text-gray-600 hover:text-blue-500">Contact</Link>
+              </div>
+              <div className="flex items-center space-x-6">
+                <CartIcon />
+              </div>
             </div>
             {isMenuOpen && (
               <div className="md:hidden">
@@ -101,9 +103,6 @@ export default function RootLayout({
                 <Link href="/produits" className="block p-4 text-gray-600 hover:text-blue-500">Products</Link>
                 <Link href="/a-propos" className="block p-4 text-gray-600 hover:text-blue-500">About</Link>
                 <Link href="/contact" className="block p-4 text-gray-600 hover:text-blue-500">Contact</Link>
-                <div className="p-4">
-                  <CartIcon />
-                </div>
               </div>
             )}
           </nav>
