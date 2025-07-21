@@ -15,7 +15,7 @@ export default function Home() {
 
   const { setCart, setModalProduct } = context;
 
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product: any) => {
     setCart((prevCart) => [...prevCart, product]);
     setModalProduct(product);
   };
