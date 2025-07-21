@@ -1,7 +1,18 @@
+"use client";
+
+import { useContext } from "react";
 import Image from "next/image";
 import { products } from "../products";
+import { CartContext } from "../cartContext";
 
 export default function ProductsPage() {
+  const { setCart, setModalProduct } = useContext(CartContext);
+
+  const handleAddToCart = (product) => {
+    setCart((prevCart) => [...prevCart, product]);
+    setModalProduct(product);
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-24">
       <section className="py-16">
@@ -20,7 +31,10 @@ export default function ProductsPage() {
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-gray-800">{product.name}</h3>
                   <p className="mt-2 text-lg text-gray-600">{product.price}</p>
-                  <button className="mt-4 w-full rounded-full bg-blue-600 py-2 font-semibold text-white transition-colors duration-300 hover:bg-blue-700">
+                  <button
+                    onClick={() => handleAddToCart(product)}
+                    className="mt-4 w-full rounded-full bg-blue-600 py-2 font-semibold text-white transition-colors duration-300 hover:bg-blue-700"
+                  >
                     Add to Cart
                   </button>
                 </div>
