@@ -1,6 +1,6 @@
 "use client";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
@@ -56,6 +56,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <html lang="en">
       <body
@@ -67,22 +69,43 @@ export default function RootLayout({
               <Link href="/" className="text-2xl font-bold text-gray-800">
                 MyStore
               </Link>
-              <ul className="flex items-center space-x-6">
-                <li>
-                  <Link href="/" className="text-gray-600 hover:text-blue-500">Home</Link>
-                </li>
-                <li>
-                  <Link href="/produits" className="text-gray-600 hover:text-blue-500">Products</Link>
-                </li>
-                <li>
-                  <Link href="/a-propos" className="text-gray-600 hover:text-blue-500">About</Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="text-gray-600 hover:text-blue-500">Contact</Link>
-                </li>
-              </ul>
-              <CartIcon />
+              <div className="hidden md:flex items-center space-x-6">
+                <Link href="/" className="text-gray-600 hover:text-blue-500">Home</Link>
+                <Link href="/produits" className="text-gray-600 hover:text-blue-500">Products</Link>
+                <Link href="/a-propos" className="text-gray-600 hover:text-blue-500">About</Link>
+                <Link href="/contact" className="text-gray-600 hover:text-blue-500">Contact</Link>
+                <CartIcon />
+              </div>
+              <div className="md:hidden">
+                <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
+            {isMenuOpen && (
+              <div className="md:hidden">
+                <Link href="/" className="block p-4 text-gray-600 hover:text-blue-500">Home</Link>
+                <Link href="/produits" className="block p-4 text-gray-600 hover:text-blue-500">Products</Link>
+                <Link href="/a-propos" className="block p-4 text-gray-600 hover:text-blue-500">About</Link>
+                <Link href="/contact" className="block p-4 text-gray-600 hover:text-blue-500">Contact</Link>
+                <div className="p-4">
+                  <CartIcon />
+                </div>
+              </div>
+            )}
           </nav>
           <main className="pt-16">{children}</main>
           <CartModal />
