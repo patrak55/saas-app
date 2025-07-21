@@ -1,19 +1,20 @@
 import Image from "next/image";
 import { products } from "./products";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen flex-col items-center justify-between pt-16">
       <section className="bg-gray-100 pt-32 pb-16 text-center w-full">
         <div className="container mx-auto">
           <h1 className="text-5xl font-extrabold text-gray-900">Your Awesome Store</h1>
           <p className="mt-4 text-xl text-gray-600">The best products, just for you.</p>
-          <a
-            href="#"
+          <Link
+            href="/produits"
             className="mt-8 inline-block rounded-full bg-blue-600 px-10 py-4 text-lg font-semibold text-white shadow-lg transition-transform duration-300 hover:scale-105"
           >
             Shop Now
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -21,13 +22,13 @@ export default function Home() {
         <div className="container mx-auto">
           <h2 className="mb-12 text-center text-4xl font-bold text-gray-800">Our Products</h2>
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
-            {products.map((product) => (
+            {products.slice(0, 3).map((product) => (
               <div key={product.id} className="transform rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105">
                 <Image
                   src={product.image}
                   alt={product.name}
-                  width={300}
-                  height={300}
+                  width={600}
+                  height={400}
                   className="w-full rounded-t-lg"
                 />
                 <div className="p-6">

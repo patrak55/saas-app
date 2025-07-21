@@ -3,7 +3,7 @@ import { products } from "../products";
 
 export default function ProductsPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen flex-col items-center justify-between pt-24">
       <section className="py-16">
         <div className="container mx-auto">
           <h2 className="mb-12 text-center text-4xl font-bold text-gray-800">Our Products</h2>
@@ -13,8 +13,8 @@ export default function ProductsPage() {
                 <Image
                   src={product.image}
                   alt={product.name}
-                  width={300}
-                  height={300}
+                  width={600}
+                  height={400}
                   className="w-full rounded-t-lg"
                 />
                 <div className="p-6">
