@@ -5,29 +5,25 @@ import { CartContext } from "./cartContext";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function CartModal() {
+function CartModalContent() {
   const context = useContext(CartContext);
 
-  if (!context) {
-    return null;
-  }
-
-  const { modalProduct, setModalProduct } = context;
-
   useEffect(() => {
-    if (!modalProduct) {
+    if (!context || !context.modalProduct) {
       return;
     }
 
     const timer = setTimeout(() => {
-      setModalProduct(null);
+      context.setModalProduct(null);
     }, 5000);
     return () => clearTimeout(timer);
-  }, [modalProduct, setModalProduct]);
+  }, [context]);
 
-  if (!modalProduct) {
+  if (!context || !context.modalProduct) {
     return null;
   }
+
+  const { modalProduct } = context;
 
   return (
     <div className="fixed top-20 right-4 z-20 w-80 rounded-lg bg-white p-4 shadow-lg">
@@ -52,4 +48,14 @@ export default function CartModal() {
       </Link>
     </div>
   );
+}
+
+export default function CartModal() {
+  const context = useContext(CartContext);
+
+  if (!context || !context.modalProduct) {
+    return null;
+  }
+
+  return <CartModalContent />;
 }
