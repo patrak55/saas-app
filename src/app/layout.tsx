@@ -49,7 +49,7 @@ export default function RootLayout({
             </ul>
           </div>
         </nav>
-        {children}
+        <main className="pt-16">{children}</main>
       </body>
     </html>
   );
