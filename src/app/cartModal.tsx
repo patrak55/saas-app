@@ -15,12 +15,14 @@ export default function CartModal() {
   const { modalProduct, setModalProduct } = context;
 
   useEffect(() => {
-    if (modalProduct) {
-      const timer = setTimeout(() => {
-        setModalProduct(null);
-      }, 5000);
-      return () => clearTimeout(timer);
+    if (!modalProduct) {
+      return;
     }
+
+    const timer = setTimeout(() => {
+      setModalProduct(null);
+    }, 5000);
+    return () => clearTimeout(timer);
   }, [modalProduct, setModalProduct]);
 
   if (!modalProduct) {
