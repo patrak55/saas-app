@@ -1,22 +1,9 @@
 import Image from "next/image";
-import { products } from "./products";
+import { products } from "../products";
 
-export default function Home() {
+export default function ProductsPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <section className="bg-gray-100 pt-32 pb-16 text-center w-full">
-        <div className="container mx-auto">
-          <h1 className="text-5xl font-extrabold text-gray-900">Your Awesome Store</h1>
-          <p className="mt-4 text-xl text-gray-600">The best products, just for you.</p>
-          <a
-            href="#"
-            className="mt-8 inline-block rounded-full bg-blue-600 px-10 py-4 text-lg font-semibold text-white shadow-lg transition-transform duration-300 hover:scale-105"
-          >
-            Shop Now
-          </a>
-        </div>
-      </section>
-
       <section className="py-16">
         <div className="container mx-auto">
           <h2 className="mb-12 text-center text-4xl font-bold text-gray-800">Our Products</h2>
