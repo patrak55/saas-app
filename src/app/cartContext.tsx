@@ -11,7 +11,7 @@ export interface Product {
 
 interface CartContextType {
   cart: Product[];
-  setCart: (cart: Product[]) => void;
+  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
   modalProduct: Product | null;
   setModalProduct: (product: Product | null) => void;
 }
