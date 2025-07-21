@@ -1,12 +1,26 @@
 "use client";
 
-import { createContext, useState } from "react";
+import { createContext, useState, ReactNode } from "react";
 
-export const CartContext = createContext(null);
+interface Product {
+  id: number;
+  name: string;
+  price: string;
+  image: string;
+}
 
-export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
-  const [modalProduct, setModalProduct] = useState(null);
+interface CartContextType {
+  cart: Product[];
+  setCart: (cart: Product[]) => void;
+  modalProduct: Product | null;
+  setModalProduct: (product: Product | null) => void;
+}
+
+export const CartContext = createContext<CartContextType | null>(null);
+
+export const CartProvider = ({ children }: { children: ReactNode }) => {
+  const [cart, setCart] = useState<Product[]>([]);
+  const [modalProduct, setModalProduct] = useState<Product | null>(null);
 
   return (
     <CartContext.Provider value={{ cart, setCart, modalProduct, setModalProduct }}>
