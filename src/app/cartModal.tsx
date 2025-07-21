@@ -33,7 +33,7 @@ function CartModalContent() {
     >
       <div className="flex items-center">
         <Image
-          src={modalProduct.image}
+          src={modalProduct.images[0]}
           alt={modalProduct.name}
           width={80}
           height={80}
@@ -42,6 +42,7 @@ function CartModalContent() {
         <div className="ml-4">
           <h3 className="font-bold">{modalProduct.name}</h3>
           <p className="text-gray-600">{modalProduct.price}</p>
+          {modalProduct.quantity && <p className="text-sm text-gray-500">Quantity: {modalProduct.quantity}</p>}
         </div>
       </div>
       <Link

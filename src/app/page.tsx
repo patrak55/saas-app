@@ -41,16 +41,20 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
             {products.slice(0, 3).map((product) => (
               <div key={product.id} className="transform rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105">
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={600}
-                  height={400}
-                  className="w-full rounded-t-lg"
-                />
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-800">{product.name}</h3>
-                  <p className="mt-2 text-lg text-gray-600">{product.price}</p>
+                <Link href={`/produits/${product.id}`}>
+                  <Image
+                    src={product.images[0]}
+                    alt={product.name}
+                    width={600}
+                    height={400}
+                    className="w-full rounded-t-lg"
+                  />
+                  <div className="p-6">
+                    <h3 className="text-2xl font-bold text-gray-800">{product.name}</h3>
+                    <p className="mt-2 text-lg text-gray-600">{product.price}</p>
+                  </div>
+                </Link>
+                <div className="p-6 pt-0">
                   <button
                     onClick={() => handleAddToCart(product)}
                     className="mt-4 w-full rounded-full bg-blue-600 py-2 font-semibold text-white transition-colors duration-300 hover:bg-blue-700"
