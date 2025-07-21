@@ -6,7 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function CartModal() {
-  const { cart, setCart, modalProduct, setModalProduct } = useContext(CartContext);
+  const context = useContext(CartContext);
+
+  if (!context) {
+    return null;
+  }
+
+  const { modalProduct, setModalProduct } = context;
 
   useEffect(() => {
     if (modalProduct) {

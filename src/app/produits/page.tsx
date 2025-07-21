@@ -6,7 +6,13 @@ import { products } from "../products";
 import { CartContext } from "../cartContext";
 
 export default function ProductsPage() {
-  const { setCart, setModalProduct } = useContext(CartContext);
+  const context = useContext(CartContext);
+
+  if (!context) {
+    return null;
+  }
+
+  const { setCart, setModalProduct } = context;
 
   const handleAddToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);

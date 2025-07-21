@@ -18,7 +18,13 @@ const geistMono = Geist_Mono({
 });
 
 function CartIcon() {
-  const { cart } = useContext(CartContext);
+  const context = useContext(CartContext);
+
+  if (!context) {
+    return null;
+  }
+
+  const { cart } = context;
 
   return (
     <div className="relative">

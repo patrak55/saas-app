@@ -7,7 +7,13 @@ import Link from "next/link";
 import { CartContext } from "./cartContext";
 
 export default function Home() {
-  const { setCart, setModalProduct } = useContext(CartContext);
+  const context = useContext(CartContext);
+
+  if (!context) {
+    return null;
+  }
+
+  const { setCart, setModalProduct } = context;
 
   const handleAddToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
