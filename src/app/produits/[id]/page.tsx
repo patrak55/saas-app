@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { products } from "../../products";
 import { CartContext, Product } from "../../cartContext";
 import Image from "next/image";
-export default function ProductPage({ params }: { params: { id: string } }) {
+export default function ProductPage({ params }: any) {
   const context = useContext(CartContext);
   const product = products.find((p) => p.id === parseInt(params.id));
   const [quantity, setQuantity] = useState(1);
