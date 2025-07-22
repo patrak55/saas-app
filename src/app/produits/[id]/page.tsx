@@ -33,13 +33,15 @@ export default function ProductPage({ params }: any) {
         {/* Product Image Section */}
         <div>
           <div className="mb-4 h-96 overflow-hidden rounded-lg">
-            <Image
-              src={selectedImage}
-              alt={product.name}
-              width={600}
-              height={600}
-              className="h-full w-full object-cover"
-            />
+            {selectedImage && (
+              <Image
+                src={selectedImage}
+                alt={product.name}
+                width={600}
+                height={600}
+                className="h-full w-full object-cover"
+              />
+            )}
           </div>
           <div className="grid grid-cols-5 gap-2">
             {product.images.map((image, index) => (
