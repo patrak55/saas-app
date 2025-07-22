@@ -28,7 +28,7 @@ export default function ProductsPage() {
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
               <div key={product.id} className="transform rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105">
-                <a href={`/produits/${product.id}`}>
+                <Link href={`/produits/${product.id}`}>
                   <Image
                     src={product.images[0]}
                     alt={product.name}
@@ -40,7 +40,7 @@ export default function ProductsPage() {
                     <h3 className="text-2xl font-bold text-gray-800">{product.name}</h3>
                     <p className="mt-2 text-lg text-gray-600">{product.price}</p>
                   </div>
-                </a>
+                </Link>
                 <div className="p-6 pt-0">
                   <button
                     onClick={() => handleAddToCart(product)}
