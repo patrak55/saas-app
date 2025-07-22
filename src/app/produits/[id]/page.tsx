@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { products } from "../../products";
 import { CartContext, Product } from "../../cartContext";
 import Image from "next/image";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function ProductPage({ params }: any) {
   const context = useContext(CartContext);
   const product = products.find((p) => p.id === parseInt(params.id));
